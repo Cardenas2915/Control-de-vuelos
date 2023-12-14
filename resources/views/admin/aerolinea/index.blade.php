@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('contenido')
-@if (session('delete'))
+@if (session('success'))
     <script>
         Swal.fire({
             title: "Proceso realizado!",
-            html: `El destino se elimino correctamente!`,
+            html: 'La aerolinea se registro correctamente',
             icon: "success"
         });
     </script>

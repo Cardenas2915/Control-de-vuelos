@@ -14,5 +14,4 @@ class Destino extends Model
         'codigo',
         'aeropuerto'
     ];
-
 }

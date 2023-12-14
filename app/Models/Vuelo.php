@@ -20,13 +20,13 @@ class Vuelo extends Model
         "hora_llegada"
     ];
 
-    public function aerolineas()
-    {
-        return $this->belongsTo(Aerolinea::class,'id');
-    }
+    // public function aerolineas()
+    // {
+    //     return $this->hasMany(Aerolinea::class,'id');
+    // }
 
     public function destinos()
     {
-        return $this->belongsTo(Destino::class,'id');
+        return $this->hasMany(Destino::class, 'id');
     }
 }

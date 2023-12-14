@@ -11,7 +11,8 @@ class DashboardController extends Controller
     public function __invoke()
     {
         $vuelos = Vuelo::all();
-        $vuelos->load("destinos","aerolineas");
+        $vuelos->load("destinos");
+        dd($vuelos);
         
         return view("admin.vuelos.dashboard",[
             "vuelos"=> $vuelos
