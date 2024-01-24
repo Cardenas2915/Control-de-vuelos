@@ -39,7 +39,8 @@ Route::post('/dorado/register/destino', [DestinoController::class,'store'])->nam
 Route::post('/dorado/update/destino', [DestinoController::class,'update']);
 Route::get('/dorado/delete/{id}', [DestinoController::class,'delete'])->name('delete.destino');
 
-Route::get('/dashboard/pasajeros', [PasajeroController::class,'create'])->middleware(['auth', 'verified'])->name('pasajeros');
+Route::get('/dorado/pasajeros/registrar', [PasajeroController::class,'create'])->middleware(['auth', 'verified'])->name('pasajeros');
+Route::post('/dorado/pasajeros/registrar', [PasajeroController::class,'store'])->name('pasajero.register');
 
 Route::get('/dorado/dashboard/vuelos', [VueloController::class,'create'])->middleware(['auth','verified'])->name('vuelos');
 Route::post('/dorado/vuelos/crear', [VueloController::class,'store'])->name('crear.vuelo');

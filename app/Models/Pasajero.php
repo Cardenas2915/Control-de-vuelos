@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Pasajero extends Model
 {
     use HasFactory;
+
+    Protected $fillable = [
+        'identificacion',
+        'name',
+        'last_name',
+        'email',
+        'telefono',
+        'vuelo_id',
+        'foto'
+    ];
 }

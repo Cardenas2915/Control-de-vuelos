@@ -32,7 +32,7 @@ class VueloController extends Controller
             "hora_llegada" => ["required", "date_format:H:i"],
         ]);
 
-        $codigo = Str::random(6);;
+        $codigo = Str::random(6);
 
         // Asegúrate de que el código generado no exista ya en la base de datos
         while (Vuelo::where('codigo', $codigo)->exists()) {

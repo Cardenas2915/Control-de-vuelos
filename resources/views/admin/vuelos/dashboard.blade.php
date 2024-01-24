@@ -126,10 +126,10 @@
                                         {{ $vuelo->codigo }}
                                     </th>
                                     <td class="px-6 py-4">
-                                        {{ $vuelo->destinos->name}}
+                                        {{ $vuelo->destinos[0]->codigo }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $vuelo->aerolinea_id }}
+                                        {{ $vuelo->aerolineas[0]->name }}
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $vuelo->sala }}

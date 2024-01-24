@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vuelos', function (Blueprint $table) {
-            $table->string('codigo', 6)->primary();
+            $table->id();
+            $table->string('codigo', 6);
             $table->foreignId('aerolinea_id')->constrained('aerolineas')->onDelete('cascade');
             $table->foreignId('destino_id')->constrained('destinos')->onDelete('cascade');
             $table->string('sala');
