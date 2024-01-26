@@ -9,7 +9,7 @@ class Pasajero extends Model
 {
     use HasFactory;
 
-    Protected $fillable = [
+    protected $fillable = [
         'identificacion',
         'name',
         'last_name',

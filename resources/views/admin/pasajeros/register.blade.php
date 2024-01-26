@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
 @section('contenido')
-    @if (session('delete'))
+    @if (session('created'))
         <script>
             Swal.fire({
                 title: "Proceso realizado!",
-                html: `El destino se elimino correctamente!`,
+                html: `El pasajero se registro correctamente!`,
                 icon: "success"
             });
         </script>
     @endif
-
 
     <div class="flex flex-col items-center">
         <div class="flex items-center justify-between py-4 bg-spring-200 shadow w-full px-6 mb-10">
@@ -25,7 +24,7 @@
                 </svg>
             </a>
         </div>
-        <form class="w-full px-10" autocomplete="off" action="{{ route('pasajero.register')}}" method="POST">
+        <form class="w-full px-10" autocomplete="off" action="{{ route('pasajero.register')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="grid gap-6 mb-6 md:grid-cols-3">
                 <div>
@@ -110,8 +109,8 @@
                         Foto perfil del pasajero
                     </label>
                     <input
-                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none "
-                        aria-describedby="file_input_help" id="file_input" type="file">
+                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  "
+                        aria-describedby="file_input_help" id="file_input" type="file" name="foto">
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX.
                         800x400px).</p>
                 </div>

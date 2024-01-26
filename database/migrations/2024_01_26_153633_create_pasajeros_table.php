@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('email');
-            $table->integer('telefono');
+            $table->string('telefono');
             $table->foreignId('vuelo_id')->constrained('vuelos')->onDelete('cascade');
             $table->string('foto');
             $table->timestamps();
