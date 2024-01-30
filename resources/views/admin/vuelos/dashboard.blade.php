@@ -155,7 +155,7 @@
                                                 </svg>
                                             </button>
 
-                                            <button
+                                            <a href="{{route('todos.pasajeros', $vuelo->id) }}"
                                                 class="inline-block p-3 text-gray-800 hover:bg-spring-300 focus:relative"
                                                 title="Ver pasajeros">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -165,7 +165,7 @@
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                                 </svg>
-                                            </button>
+                                            </a>
                                         </span>
                                     </td>
                                 </tr>

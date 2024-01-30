@@ -9,15 +9,22 @@ use Illuminate\Http\Request;
 class PasajeroController extends Controller
 {
     //
-    public function index()
+    public function index($id)
     {
-        
-        return view("admin.pasajeros.index");
+        $vuelo = Vuelo::where('id', $id)->get();
+        $pasajeros = Pasajero::where('vuelo_id', $id)->get();
+
+
+        return view("admin.pasajeros.ver-todos", [
+            'vuelo' => $vuelo,
+            'pasajeros' => $pasajeros
+        ]);
     }
 
     public function create()
     {
         $vuelos = Vuelo::all();
+
         return view("admin.pasajeros.register" ,[
             "vuelos" => $vuelos 
         ]);
@@ -37,12 +44,12 @@ class PasajeroController extends Controller
 
         // Obtener el archivo de imagen de la solicitud
         $imagen = $request->file('foto');
-
+        
         // Generar un nombre único para la imagen
         $nombreImagen = uniqid() . '.' . $imagen->getClientOriginalExtension();
-
+        
         // Guardar la imagen en la carpeta de almacenamiento público
-        $imagen->storeAs('public/user', $nombreImagen);
+        $imagen->move(public_path('/user'), $nombreImagen);
 
         Pasajero::create([
             'identificacion' => $datos['identificacion'],
