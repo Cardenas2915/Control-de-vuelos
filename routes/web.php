@@ -44,5 +44,7 @@ Route::get('/dorado/pasajeros/{id}', [PasajeroController::class,'index'])->middl
 Route::post('/dorado/pasajeros/registrar', [PasajeroController::class,'store'])->name('pasajero.register');
 
 Route::get('/dorado/dashboard/vuelos', [VueloController::class,'create'])->middleware(['auth','verified'])->name('vuelos');
+Route::get('/dorado/dashboard/editar/{id}', [VueloController::class,'edit'])->middleware(['auth','verified'])->name('edit.vuelos');
+Route::post('/dorado/vuelos/edit', [VueloController::class,'update'])->name('update.vuelo');
 Route::post('/dorado/vuelos/crear', [VueloController::class,'store'])->name('crear.vuelo');
 require __DIR__.'/auth.php';

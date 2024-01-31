@@ -3,7 +3,7 @@
 @section('contenido')
     <section class=" flex flex-col items-center mt-10 px-20">
         <p class="text-2xl font-bold mb-10">Datos del vuelo</p>
-        <div class="grid grid-cols-3 gap-12 lg:gap-24 lg:grid-cols-6 ">
+        <div class="grid grid-cols-2 gap-12 lg:gap-24 lg:grid-cols-4 ">
 
             @if ($pasajeros->count() > 0)
                 @foreach ($pasajeros as $pasajero)
@@ -24,8 +24,6 @@
             @else
                 <p class="text-center text-gray-800 font-bold">No hay pasajeros asignados en este vuelo</p>
             @endif
-
-
 
         </div>
     </section>

@@ -22,6 +22,19 @@ class VueloController extends Controller
         ]);
     }
 
+    public function edit($id){
+
+        $vuelo = Vuelo::where('id', $id)->get();
+        $destinos = Destino::all();
+        $aerolineas = Aerolinea::all();
+
+        return view("admin.vuelos.edit", [
+            "vuelo" => $vuelo,
+            "aerolineas" => $aerolineas,
+            "destinos" => $destinos
+        ]);
+    }
+
     public function store(Request $request)
     {
         $datos = $request->validate([
@@ -49,6 +62,29 @@ class VueloController extends Controller
         ]);
 
         session()->flash('created', ' Registro exitoso del vuelo!');
+        return redirect()->route('vuelos');
+    }
+
+    public function update(Request $request)
+    {
+        $datos = $request->validate([
+            "aerolinea" => ["required", "integer"],
+            "destino" => ["required", "integer"],
+            "sala" => ["required", "string"],
+            "hora_salida" => ["required", "date_format:H:i"],
+            "hora_llegada" => ["required", "date_format:H:i"],
+        ]);
+
+        $vuelo = Vuelo::find($request->id);
+        $vuelo->aerolinea_id = $datos['aerolinea'];
+        $vuelo->destino_id = $datos["destino"];
+        $vuelo->sala = $datos["sala"];
+        $vuelo->hora_salida = $datos["hora_salida"];
+        $vuelo->hora_llegada = $datos["hora_llegada"];
+        $vuelo->save();
+        
+
+        session()->flash('edit', 'Datos Actualizados!');
         return redirect()->route('vuelos');
     }
 }
